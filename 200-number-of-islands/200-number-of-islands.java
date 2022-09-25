@@ -10,13 +10,32 @@ class Solution {
         
         int count = 0;
         
-        Queue<int[]> q = new LinkedList<>();
+        Queue<Integer> rq = new LinkedList<>();
+        Queue<Integer> cq = new LinkedList<>();
         
         for(int i = 0; i < m; i++) {
             for(int j = 0; j < n; j++) {
                 if(grid[i][j] == '1'){
                     count++;
-                    dfs(grid, i, j, m, n);
+                    // dfs(grid, i, j, m, n);
+                    rq.add(i);
+                    cq.add(j);
+                    grid[i][j] = '0';
+                    while(!rq.isEmpty()) {
+                        int cr = rq.poll();
+                        int cc = cq.poll();
+                        for(int[] dir : dirs) {
+                            int nr = dir[0] + cr;
+                            int nc = dir[1] + cc;
+                            
+                            // bound check
+                            if(nr >= 0 && nc >= 0 && nr < m && nc < n && grid[nr][nc] == '1') {
+                                rq.add(nr);
+                                cq.add(nc);
+                                grid[nr][nc] = '0';
+                            }
+                        }
+                    }
                 }
             }
         }
