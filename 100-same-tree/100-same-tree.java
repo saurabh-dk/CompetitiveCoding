@@ -25,10 +25,6 @@ class Solution {
             TreeNode currp = que.poll();
             TreeNode currq = que.poll();
             
-            // if(currp.val != currq.val) {
-            //     return false;
-            // }
-            
             if(currp == null && currq == null) continue;
             else if(currp == null || currq == null || currp.val != currq.val)
                 return false;
