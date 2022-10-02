@@ -21,11 +21,10 @@ class Solution {
         ListNode curr = first;
         while(!pq.isEmpty()) {
             ListNode temp = pq.poll();
-            
-            curr.next = temp;
-            curr = curr.next;
             if(temp.next != null)
                 pq.add(temp.next);
+            curr.next = temp;
+            curr = curr.next;
         }
         
         return first.next;
