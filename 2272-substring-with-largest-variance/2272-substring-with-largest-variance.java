@@ -16,12 +16,12 @@ class Solution {
                 for(int i = 0 ; i < s.length() ; i++){
                     int c =  (int)(s.charAt(i) - 'a');
                     
-                    if(c == b) currBFreq++;
                     if(c == a) {
                         remainingA--;
                         currAFreq++;
                     }
                     
+                    if(c == b) currBFreq++;
                     
                     if(currBFreq < currAFreq &&  remainingA >= 1){
                         currAFreq = 0;
