@@ -2,7 +2,7 @@ class Solution {
     public int largestVariance(String s) {
         int [] freq = new int[26];
         for(int i = 0 ; i < s.length() ; i++)
-            freq[(int)(s.charAt(i) - 'a')]++;
+            freq[(int)(s.charAt(i) - 'a')] += 1;
         
         int maxVariance = 0;
         for(int a = 0 ; a < 26 ; a++){
