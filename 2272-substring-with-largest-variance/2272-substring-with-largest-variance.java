@@ -14,8 +14,8 @@ class Solution {
 				// run kadanes on each possible character pairs (A & B)
                 int currAFreq = 0; 
                 int currBFreq = 0;
-                for(char i : s.toCharArray()){
-                    int c =  (int)(i - 'a');
+                for(char i = 0 ; i < s.length() ; i++){
+                    int c =  (int)(s.charAt(i) - 'a');
                     
                     if(c == a) {
                         remainingA--;
