@@ -18,17 +18,18 @@ class Solution {
                     
                     if(c == b) currBFreq++;
                     if(c == a) {
-                        currAFreq++;
                         remainingA--;
+                        currAFreq++;
+                    }
+                    
+                    
+                    if(currBFreq < currAFreq &&  remainingA >= 1){
+                        currAFreq = 0;
+                        currBFreq = 0;
                     }
                     
                     if(currAFreq > 0)
                         maxVariance = Math.max(maxVariance, currBFreq - currAFreq);
-                    
-                    if(currBFreq < currAFreq &&  remainingA >= 1){
-                        currBFreq = 0;
-                        currAFreq = 0;
-                    }
                 }
             }
         }
