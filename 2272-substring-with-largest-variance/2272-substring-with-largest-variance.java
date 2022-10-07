@@ -23,13 +23,13 @@ class Solution {
                     
                     if(c == b) currBFreq++;
                     
-                    if(currBFreq < currAFreq &&  remainingA >= 1){
+                    if(currBFreq < currAFreq && remainingA >= 1){
                         currAFreq = 0;
                         currBFreq = 0;
                     }
                     
                     if(currAFreq > 0)
-                        maxVariance = Math.max(maxVariance, currBFreq - currAFreq);
+                        maxVariance = Math.max(currBFreq - currAFreq, maxVariance);
                 }
             }
         }
