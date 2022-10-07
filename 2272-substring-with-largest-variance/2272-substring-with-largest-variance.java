@@ -12,7 +12,8 @@ class Solution {
                 if(a == b || remainingA == 0 || remainingB == 0) continue;
                 
 				// run kadanes on each possible character pairs (A & B)
-                int currBFreq = 0, currAFreq = 0;
+                int currAFreq = 0; 
+                int currBFreq = 0;
                 for(int i = 0 ; i < s.length() ; i++){
                     int c =  (int)(s.charAt(i) - 'a');
                     
