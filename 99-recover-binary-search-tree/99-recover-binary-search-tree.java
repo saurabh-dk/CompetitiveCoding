@@ -16,7 +16,6 @@
 class Solution {
     TreeNode first;
     TreeNode second;
-    TreeNode prev;
     public void recoverTree(TreeNode root) {
         if(root == null) return;
         helper(root);
@@ -28,19 +27,45 @@ class Solution {
     private void helper(TreeNode root) {
         if(root == null) return;
         
-        helper(root.left);
+//         helper(root.left);
         
-        if(prev != null && prev.val >= root.val) {
-            if(first == null) {
-                first = prev;
-                second = root;
-            } else {
-                second = root;
+//         if(prev != null && prev.val >= root.val) {
+//             if(first == null) {
+//                 first = prev;
+//                 second = root;
+//             } else {
+//                 second = root;
+//             }
+//         }
+        
+//         prev = root;
+        
+//         helper(root.right);
+        
+        TreeNode prev = null;
+        
+        Stack<TreeNode> st = new Stack<>();
+        
+        while(root != null || !st.isEmpty()) {
+            while(root != null) {
+                st.push(root);
+                root = root.left;
             }
+            root = st.pop();
+            
+            if(prev != null && prev.val >= root.val) {
+                if(first == null) {
+                    first = prev;
+                    second = root;
+                } else {
+                    second = root;
+                }
+            }
+            
+            prev = root;
+            root = root.right;
         }
         
-        prev = root;
         
-        helper(root.right);
     }
 }
