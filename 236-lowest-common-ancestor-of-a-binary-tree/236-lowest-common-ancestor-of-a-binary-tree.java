@@ -25,20 +25,17 @@ class Solution {
     private void dfs(TreeNode root, TreeNode p, TreeNode q, List<TreeNode> path) {
         if(root == null) return;
         
+        path.add(root);
+        
         if(root == p) {
             resp = new ArrayList<>(path);
             resp.add(root);
-            resp.add(root);
-
         }
         
         if(root == q) {
             resq = new ArrayList<>(path);
             resq.add(root);
-            resq.add(root);
         }
-        
-        path.add(root);
         
         dfs(root.left, p, q, path);
         dfs(root.right, p, q, path);
