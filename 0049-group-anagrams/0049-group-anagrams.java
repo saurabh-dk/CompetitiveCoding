@@ -16,13 +16,7 @@ class Solution {
                 
             map.get(key).add(s);
         }
-        
-        List<List<String>> res = new ArrayList<>();
-        
-        for(List<String> i : map.values()) {
-            res.add(i);
-        }
-        
-        return res;
+
+        return new ArrayList<>(map.values());
     }
 }
