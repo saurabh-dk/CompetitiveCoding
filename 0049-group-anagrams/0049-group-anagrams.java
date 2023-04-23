@@ -9,7 +9,6 @@ class Solution {
                 store[s.charAt(i) - 'a']++;
             }
             String key = Arrays.toString(store);
-            // System.out.println(key);
             if(!map.containsKey(key)) {
                 map.put(key, new ArrayList<>());
             }
